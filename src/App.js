@@ -37,8 +37,8 @@ class App extends Component {
     <Header />
 
     <div style={appStyle} className="App">
-      <div className="drop-down-prompt">Search for Vendors to see records...</div>
-      <DropdownButton className="d-inline" id="dropdown-basic-button" variant="success" title="Vendors">
+      <div className="drop-down-prompt">Search for Vendor to see records...</div>
+      <DropdownButton className="vendor-drop-down d-inline" variant="outline-info" title="Vendors">
       <Dropdown.Menu show>
       <Dropdown.Header>Dropdown header</Dropdown.Header>
       {dataJsx}
