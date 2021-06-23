@@ -28,8 +28,11 @@ p {
   margin-right: 1rem;
 }
 
-.payee-title-card {
+.card {
   background-color: #343a45;
-  margin-left: 1em;
-  margin-right: 1em;
+}
+
+.payee-title-text {
+  color: $secondary;
+  font-size: 20px;
 }

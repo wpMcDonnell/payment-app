@@ -36,6 +36,7 @@ class App extends Component {
       justifyContent: 'center'
     }
 
+    const { event } = this.state
     // create variable to map vendor "Payee" to drop down menu button
     let vendorDataJSX = (<div>
       {this.state.data.sort().map(data =>
@@ -45,8 +46,22 @@ class App extends Component {
     let toggledDataJSX = ''
     if (this.state.vendorClicked) {
       toggledDataJSX = (
-        <Card className='rounded shadow payee-title-card'> <p>Payee {this.state.event.Payee.Name} </p></Card>
+        <div className=''>
+          <div className='container'>
+          <Card className='rounded shadow col-12'>
+            <p className='payee-title-text mt-4 mx-auto'>Payee: {event.Payee.Name} </p>
+          </Card>
+          </div>
+          <div className='d-flex container'>
+            <Card className='pan col-6 rounded shadow'>
+              <p>Payment Card</p>
+              <p>{event.Payment.PAN}</p>
+              <p>{event.Payment.Exp}</p>
+              <p>{event.Payment.CVV}</p>
+            </Card>
+          </div>
 
+        </div>
     )}
 
 
