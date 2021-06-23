@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
 import './App.css';
+const data = require ('./Data/sample.json')
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      web3: 'undefined',
-      account: '',
-      token: null,
-      dbank: null,
-      balance: 0,
-      dBankAddress: null
+      data: data
     }
   }
 
   componentDidMount() {
-
+    console.log(data)
   }
 
   render() {
+    let dataJsx = <div>
+      {this.state.data.map(data =>
+      <p> {data.Payee.Name} </p> )}
+    </div>
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          YO
-        </p>
+        <div>
+          {dataJsx}
+        </div>
 
       </header>
     </div>
