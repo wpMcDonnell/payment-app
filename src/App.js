@@ -10,7 +10,9 @@ class App extends Component {
     super(props)
     this.state = {
       // set data state to Object created from sample.json file via require
-      data: data
+      data: data,
+      vendorClicked: false,
+      event: ''
     }
   }
 
@@ -20,6 +22,7 @@ class App extends Component {
 
   getPayeeData = (event) => {
     console.log(event)
+    this.setState({ event : event, vendorClicked: true })
   }
 
   // Add styling for the drop down menu and user prompt"
@@ -33,14 +36,19 @@ class App extends Component {
     }
 
     // create variable to map vendor "Payee" to drop down menu button
-    let vendorDataJsx = <div>
+    let vendorDataJSX = (<div>
       {this.state.data.sort().map(data =>
       <Dropdown.Item eventKey="1++"onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
-    </div>
+    </div>)
 
-    console.log(data[0])
+    let toggledDataJSX = ''
+    if (this.state.vendorClicked) {
+      toggledDataJSX = <p>{this.state.event.Payee.Name} </p>
+    }
 
-    let resultsJSX = ''
+
+  console.log(this.state.vendorClicked)
+
 
 
 
@@ -53,12 +61,13 @@ class App extends Component {
       <DropdownButton className="vendor-drop-down d-inline" variant="outline-info" title="Vendors">
       <Dropdown.Menu show>
       <Dropdown.Header>Dropdown header</Dropdown.Header>
-      {vendorDataJsx}
+      {vendorDataJSX}
       </Dropdown.Menu>
       </DropdownButton>
     </div>
-
-
+    <div>
+    {toggledDataJSX}
+    </div>
     </Fragment>
   );
 }
