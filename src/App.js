@@ -17,6 +17,14 @@ class App extends Component {
   }
 
   render() {
+    const appStyle = {
+      display: 'flex',
+      alignItems: 'flex-end',
+      textAlign: 'center',
+      marginTop: '2rem',
+      justifyContent: 'center'
+    }
+
     let dataJsx = <div>
       {this.state.data.sort().map(data =>
       <Dropdown.Item eventKey="1++">{data.Payee.Name}</Dropdown.Item>)}
@@ -27,15 +35,15 @@ class App extends Component {
   return (
     <Fragment>
     <Header />
-    <div className="App">
-        <div>
-        <DropdownButton id="dropdown-basic-button" variant="success" title="Vendors">
-        <Dropdown.Menu show>
-        <Dropdown.Header>Dropdown header</Dropdown.Header>
-        {dataJsx}
-        </Dropdown.Menu>
-        </DropdownButton>
-        </div>
+
+    <div style={appStyle} className="App">
+      <div className="drop-down-prompt">Search for Vendors to see records...</div>
+      <DropdownButton className="d-inline" id="dropdown-basic-button" variant="success" title="Vendors">
+      <Dropdown.Menu show>
+      <Dropdown.Header>Dropdown header</Dropdown.Header>
+      {dataJsx}
+      </Dropdown.Menu>
+      </DropdownButton>
     </div>
     </Fragment>
   );
