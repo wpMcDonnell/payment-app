@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import './App.css';
+import Header from './components/Header'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 const data = require ('./Data/sample.json')
@@ -26,9 +26,8 @@ class App extends Component {
 
   return (
     <Fragment>
-    
+    <Header />
     <div className="App">
-      <header className="App-header">
         <div>
         <DropdownButton id="dropdown-basic-button" variant="success" title="Vendors">
         <Dropdown.Menu show>
@@ -37,8 +36,6 @@ class App extends Component {
         </Dropdown.Menu>
         </DropdownButton>
         </div>
-
-      </header>
     </div>
     </Fragment>
   );
