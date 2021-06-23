@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import Header from './components/Header'
+import { Card } from 'react-bootstrap'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 // create JS object / variable from requiring sample.json data
@@ -38,13 +39,15 @@ class App extends Component {
     // create variable to map vendor "Payee" to drop down menu button
     let vendorDataJSX = (<div>
       {this.state.data.sort().map(data =>
-      <Dropdown.Item eventKey="1++"onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
+      <Dropdown.Item key={data.Payee.Name} eventKey="1" onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
     </div>)
 
     let toggledDataJSX = ''
     if (this.state.vendorClicked) {
-      toggledDataJSX = <p>{this.state.event.Payee.Name} </p>
-    }
+      toggledDataJSX = (
+        <Card className='rounded shadow payee-title-card'> <p>Payee {this.state.event.Payee.Name} </p></Card>
+
+    )}
 
 
   console.log(this.state.vendorClicked)
@@ -56,7 +59,7 @@ class App extends Component {
     <Fragment>
     <Header />
 
-    <div style={appStyle} className="App">
+    <div style={appStyle} className="mb-3">
       <div className="drop-down-prompt">Search for Vendor to see records...</div>
       <DropdownButton className="vendor-drop-down d-inline" variant="outline-info" title="Vendors">
       <Dropdown.Menu show>
