@@ -13,7 +13,8 @@ class App extends Component {
       // set data state to Object created from sample.json file via require
       data: data,
       vendorClicked: false,
-      event: ''
+      event: '',
+      footerClassName: "copyright-fixed py-3 text-center text-white"
     }
   }
 
@@ -23,7 +24,7 @@ class App extends Component {
 
   getPayeeData = (event) => {
     console.log(event)
-    this.setState({ event : event, vendorClicked: true })
+    this.setState({ event : event, vendorClicked: true, footerClassName: 'copyright py-3 text-center text-white' })
   }
 
   // Add styling for the drop down menu and user prompt"
@@ -46,7 +47,7 @@ class App extends Component {
     let toggledDataJSX = ''
     if (this.state.vendorClicked) {
       toggledDataJSX = (
-        <div className=''>
+        <div className='pb-4'>
         {/* Div / section for Payee name -- main title card */}
           <div className='d-flex container mb-2'>
             <Card className='shadow mb-2 col-12'>
@@ -121,21 +122,25 @@ class App extends Component {
 
   return (
     <Fragment>
-    <Header />
-    <div style={appStyle} className="mb-4">
-      <div className="drop-down-prompt">Search for Vendor <br></br> to see records...</div>
-      <div id='vendor-dropdown'>
-        <DropdownButton variant="outline-info" title="Vendors">
-        <Dropdown.Header>Select below</Dropdown.Header>
-        {vendorDataJSX}
-        </DropdownButton>
+      <Header />
+      <div style={appStyle} className="mb-4">
+        <div className="drop-down-prompt">Search for Vendor <br></br> to see records...</div>
+        <div id='vendor-dropdown'>
+          <DropdownButton variant="outline-info" title="Vendors">
+          <Dropdown.Header>Select below</Dropdown.Header>
+          {vendorDataJSX}
+          </DropdownButton>
+        </div>
       </div>
-    </div>
 
-    <div>
-    {toggledDataJSX}
-    </div>
+      <div>
+        {toggledDataJSX}
+      </div>
+      <div className={this.state.footerClassName}>
+        <div className="container"><small>Copyright © Paymerang 2021</small></div>
+      </div>
     </Fragment>
+
   );
 }
 }

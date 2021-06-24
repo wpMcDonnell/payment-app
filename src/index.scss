@@ -10,6 +10,7 @@ $secondary: #FF69B4;
 body {
   background-color: #282c34;
   font-family: 'Poppins', sans-serif;
+  height: 100vh;
 }
 
 p {
@@ -67,4 +68,17 @@ p {
   text-align: center;
   color: #ededed;
   margin-bottom: 1.5rem;
+}
+
+.copyright-fixed {
+  background-color: #343a45;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+}
+
+.copyright {
+  background-color: #343a45;
+  width: 100%;
 }
