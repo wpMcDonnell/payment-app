@@ -82,3 +82,15 @@ p {
   background-color: #343a45;
   width: 100%;
 }
+
+.bi-credit-card {
+  margin-left: 0.6rem;
+  color: $secondary;
+  font-size: 20px;
+
+}
+
+#payment-card {
+  display: flex;
+  align-items: center;
+}
