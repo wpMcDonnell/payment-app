@@ -38,6 +38,7 @@ p {
 .drop-down-prompt {
   color: white;
   font-size: 16px;
+  margin-right: .25rem;
 }
 
 .card {
@@ -100,6 +101,24 @@ svg {
 @media (min-width:992px) {
   #main-div {
     display: flex;
+  }
+}
+
+@media (min-width:370px) {
+  .drop-down-prompt {
+    font-size: 14px;
+  }
+}
+
+@media (min-width:400px) {
+  .drop-down-prompt {
+    font-size: 16px;
+  }
+}
+
+@media (min-width:420px) {
+  .drop-down-prompt {
+    font-size: 18px;
   }
 }
 
