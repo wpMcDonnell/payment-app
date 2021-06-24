@@ -60,10 +60,6 @@ p {
   color: #a0b2d9;
 }
 
-// #vendor-dropdown {
-//   margin-right: 10px;
-// }
-
 #remit-title {
   text-align: center;
   color: #ededed;
@@ -83,18 +79,14 @@ p {
   width: 100%;
 }
 
-.bi-credit-card {
-  margin-left: 0.6rem;
+svg {
+  margin-right: 0.5rem;
   color: $secondary;
   font-size: 20px;
 }
 
-.payment-card-line {
+.card-header-line {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-#payment-card {
-  margin-right: 0.5rem;
 }

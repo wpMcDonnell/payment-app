@@ -87,7 +87,7 @@ class App extends Component {
           <div className='d-flex container mb-4'>
             <Card className='col-12 shadow'>
             <div className='container mt-3 mb-1'>
-              <div className='payment-card-line'>
+              <div className='card-header-line'>
                 <p className='payment-text' id='payment-card-text'> Payment Card </p>
                 <svg id='payment-card' xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className=" bi bi-credit-card" viewBox="0 0 16 16">
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
@@ -107,7 +107,13 @@ class App extends Component {
           <div key={remittance.InvoiceNo} className='d-flex container mb-3'>
             <Card className='pan col-12 shadow'>
             <div className='container mt-3 mb-2'>
-              <p className='payment-text'>{remittance.PayorName}</p>
+              <div className='card-header-line'>
+                <p className='payment-text'>{remittance.PayorName}</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                </svg>
+              </div>
               <div className='key-text-header'> Amount: <p>{remittance.Amount}</p> </div>
               <div className='key-text-header'> Inovice Number: <p>{remittance.InvoiceNo}</p> </div>
               <div className='key-text-header'> Payor ID: <p>{remittance.PayorId}</p> </div>
