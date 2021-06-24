@@ -33,7 +33,7 @@ class App extends Component {
       alignItems: 'center',
       textAlign: 'center',
       marginTop: '2rem',
-      justifyContent: 'center'
+      justifyContent: 'space-evenly'
     }
 
     const { event } = this.state
@@ -93,13 +93,14 @@ class App extends Component {
     <Fragment>
     <Header />
     <div style={appStyle} className="mb-3">
-      <div className="drop-down-prompt pr-2">Search for Vendor to see records...
+      <div className="drop-down-prompt">Search for Vendor <br></br> to see records...
       </div>
-
-      <DropdownButton variant="outline-info" title="Vendors">
-      <Dropdown.Header>Dropdown header</Dropdown.Header>
-      {vendorDataJSX}
-      </DropdownButton>
+      <div id='vendor-dropdown'>
+        <DropdownButton variant="outline-info" title="Vendors">
+        <Dropdown.Header>Select below</Dropdown.Header>
+        {vendorDataJSX}
+        </DropdownButton>
+      </div>
     </div>
 
     <div>
