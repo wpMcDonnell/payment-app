@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     const appStyle = {
       display: 'flex',
-      alignItems: 'flex-end',
+      alignItems: 'center',
       textAlign: 'center',
       marginTop: '2rem',
       justifyContent: 'center'
@@ -38,9 +38,9 @@ class App extends Component {
 
     const { event } = this.state
     // create variable to map vendor "Payee" to drop down menu button
-    let vendorDataJSX = (<div>
+    let vendorDataJSX = (<div className=''>
       {this.state.data.sort().map(data =>
-      <Dropdown.Item key={data.Payee.Name} eventKey="1" onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
+      <Dropdown.Item key={data.Payee.Name} onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
     </div>)
 
     let toggledDataJSX = ''
@@ -92,16 +92,16 @@ class App extends Component {
   return (
     <Fragment>
     <Header />
-
     <div style={appStyle} className="mb-3">
-      <div className="drop-down-prompt">Search for Vendor to see records...</div>
-      <DropdownButton className="vendor-drop-down d-inline" variant="outline-info" title="Vendors">
-      <Dropdown.Menu show>
+      <div className="drop-down-prompt pr-2">Search for Vendor to see records...
+      </div>
+
+      <DropdownButton variant="outline-info" title="Vendors">
       <Dropdown.Header>Dropdown header</Dropdown.Header>
       {vendorDataJSX}
-      </Dropdown.Menu>
       </DropdownButton>
     </div>
+
     <div>
     {toggledDataJSX}
     </div>
