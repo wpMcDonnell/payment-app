@@ -19,9 +19,6 @@ p {
   font-size: 16px;
 }
 
-i {
-  font-size: 16px;
-}
 
 .header {
   background-color: #343a45;
@@ -33,10 +30,14 @@ i {
   margin-left: 1rem;
 }
 
+.app-style {
+  justify-content: space-around;
+  align-items: center;
+}
+
 .drop-down-prompt {
   color: white;
-  font-size: 1.2rem;
-  margin-right: 1rem;
+  font-size: 16px;
 }
 
 .card {
@@ -99,5 +100,12 @@ svg {
 @media (min-width:992px) {
   #main-div {
     display: flex;
+  }
+}
+
+@media (min-width:693px) {
+  .app-style {
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 }

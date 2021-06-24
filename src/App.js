@@ -31,10 +31,9 @@ class App extends Component {
   render() {
     const appStyle = {
       display: 'flex',
-      alignItems: 'center',
       textAlign: 'center',
       marginTop: '2rem',
-      justifyContent: 'space-evenly'
+
     }
 
     const { event } = this.state
@@ -50,18 +49,18 @@ class App extends Component {
       toggledDataJSX = (
         <div className='pb-4'>
         {/* Div / section for Payee name -- main title card */}
-          <div className='d-flex container mb-2'>
-            <Card className='shadow mb-2 col-12'>
+          <div className='d-flex container col-12 col-lg-10 mb-2'>
+            <Card className='shadow mb-2 col-12 mx-auto'>
               <div className='payee-title-text mt-3 mx-auto'>PAYEE:
                 <p className='payee-name'> {event.Payee.Name} </p>
               </div>
             </Card>
           </div>
           {/* Div / section for Payee information i.e. fax, address, phone -- main title card */}
-          <div className='justify-content-between container mb-4' id="main-div">
+          <div className='justify-content-between container mb-4 col-12 col-lg-10' id="main-div">
 
 
-              <div className='col-12 col-lg-6 mt-2 mb-2 '>
+              <div className='col-12 col-lg-6 mt-2 mb-4 '>
                 <Card className='col-12 shadow mb-3'>
                   <div className='container mt-3 mb-1'>
                     <p className='payment-text'>Payee Info:</p>
@@ -104,7 +103,7 @@ class App extends Component {
               </div>
 
           {/* Start Remmittance section... title for array of payments */}
-              <div className='col-12 col-lg-6 mt-1' id='remittance-div-section'>
+              <div className='col-12 col-lg-5' id='remittance-div-section'>
                 <h2 id='remit-title'> Remittance </h2>
                 {/* Payment card object info listing selected json info */}
                 {event.Remittance.map(remittance =>
@@ -112,8 +111,8 @@ class App extends Component {
                     <Card className='col-12 shadow'>
                     <div className='container mt-3 mb-2'>
                       <div className='card-header-line'>
-                        <p className='payment-text'>{remittance.PayorName} <i> - remitter </i> </p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                        <p className='payment-text'>{remittance.PayorName} </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-file-text" viewBox="0 0 16 16">
                         <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                         </svg>
@@ -142,9 +141,9 @@ class App extends Component {
   return (
     <Fragment>
       <Header />
-      <div style={appStyle} className="mb-4">
-        <div className="drop-down-prompt">Search for Vendor <br></br> to see records...</div>
-        <div id='vendor-dropdown'>
+      <div style={appStyle} className="col-lg-10 container mb-4 app-style">
+        <div className="drop-down-prompt col-6 col-sm-6 col-md-4">Search for Vendor to see records...</div>
+        <div id='vendor-dropdown col-6'>
           <DropdownButton variant="outline-info" title="Vendors">
           <Dropdown.Header>Select below</Dropdown.Header>
           {vendorDataJSX}
