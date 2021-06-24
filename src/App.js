@@ -47,11 +47,40 @@ class App extends Component {
     if (this.state.vendorClicked) {
       toggledDataJSX = (
         <div className=''>
+        {/* Div / section for Payee name -- main title card */}
           <div className='d-flex container mb-2'>
-          <Card className='shadow mb-2 col-12'>
-            <div className='payee-title-text mt-3 mx-auto'>PAYEE: <p className='payee-name'> {event.Payee.Name} </p> </div>
-          </Card>
+            <Card className='shadow mb-2 col-12'>
+              <div className='payee-title-text mt-3 mx-auto'>PAYEE:
+                <p className='payee-name'> {event.Payee.Name} </p>
+              </div>
+            </Card>
           </div>
+          {/* Div / section for Payee information i.e. fax, address, phone -- main title card */}
+          <div className='d-flex container mb-4'>
+            <Card className='col-12 shadow'>
+              <div className='container mt-3 mb-1'>
+                <p className='payment-text'>Payee Info:</p>
+                <div className='key-text-header'> ATTN:
+                  <p>{event.Payee.Attention}</p>
+                </div>
+                <div className='key-text-header'> Phone:
+                  <p>{event.Payee.Phone}</p>
+                </div>
+                <div className='key-text-header'> Fax:
+                  <p>{event.Payee.Fax}</p>
+                </div>
+                <div className='key-text-header'> Address:
+                  <p>{event.Payee.Address.Address1}, {event.Payee.Address.Address2}
+                  <br></br>
+                  {event.Payee.Address.City}, {event.Payee.Address.StateOrProvince} ({event.Payee.Address.PostalCode})
+                  <br></br>
+                  {event.Payee.Address.Country}
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
 
           {/* Payment card object info listing selected json info */}
           <div className='d-flex container mb-4'>
@@ -70,7 +99,7 @@ class App extends Component {
           {event.Remittance.map(remittance =>
           <div key={remittance.InvoiceNo} className='d-flex container mb-3'>
             <Card className='pan col-12 shadow'>
-            <div className='container mt-3'>
+            <div className='container mt-3 mb-2'>
               <p className='payment-text'>{remittance.PayorName}</p>
               <div className='key-text-header'> Amount: <p>{remittance.Amount}</p> </div>
               <div className='key-text-header'> Inovice Number: <p>{remittance.InvoiceNo}</p> </div>
