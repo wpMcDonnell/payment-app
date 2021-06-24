@@ -47,14 +47,14 @@ class App extends Component {
     if (this.state.vendorClicked) {
       toggledDataJSX = (
         <div className=''>
-          <div className='d-flex container'>
+          <div className='d-flex container mb-3'>
           <Card className='shadow mb-2 col-12'>
             <div className='payee-title-text mt-3 mx-auto'>PAYEE: <p className='payee-name'> {event.Payee.Name} </p> </div>
           </Card>
           </div>
 
           {/* Payment card object info listing selected json info */}
-          <div className='d-flex container mb-4'>
+          <div className='d-flex container mb-5'>
             <Card className='col-12 shadow'>
             <div className='container mt-3 mb-1'>
               <p className='payment-text'>Payment Card</p>
@@ -65,7 +65,7 @@ class App extends Component {
             </Card>
           </div>
           {/* Start Remmittance section... title for array of payments */}
-          <h2 className='remit-title'> Remittance </h2>
+          <h2 id='remit-title'> Remittance </h2>
           {/* Payment card object info listing selected json info */}
           {event.Remittance.map(remittance =>
           <div key={remittance.InvoiceNo} className='d-flex container'>
