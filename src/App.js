@@ -57,8 +57,8 @@ class App extends Component {
             </Card>
           </div>
           {/* Div / section for Payee information i.e. fax, address, phone -- main title card */}
-          <div className='d-flex container mb-4'>
-            <Card className='col-12 shadow'>
+          <div className='d-flex container justify-content-between mb-4'>
+            <Card className='col-12 col-lg-6 shadow'>
               <div className='container mt-3 mb-1'>
                 <p className='payment-text'>Payee Info:</p>
                 <div className='key-text-header'> ATTN:
@@ -80,12 +80,13 @@ class App extends Component {
                 </div>
               </div>
             </Card>
-          </div>
+            </div>
+
 
 
           {/* Payment card object info listing selected json info */}
-          <div className='d-flex container mb-4'>
-            <Card className='col-12 shadow'>
+            <div className='d-flex container mb-4'>
+            <Card className='col-12 col-lg-6 shadow'>
             <div className='container mt-3 mb-1'>
               <div className='card-header-line'>
                 <p className='payment-text' id='payment-card-text'> Payment Card </p>
