@@ -48,13 +48,13 @@ class App extends Component {
       toggledDataJSX = (
         <div className=''>
           <div className='container'>
-          <Card className='rounded shadow col-12'>
-            <p className='payee-title-text mt-4 mx-auto'>Payee: {event.Payee.Name} </p>
+          <Card className='rounded shadow mb-2 col-12'>
+            <p className='payee-title-text mt-4 mx-auto'>Payee: <i> {event.Payee.Name} </i> </p>
           </Card>
           </div>
           <div className='d-flex container'>
-            <Card className='pan col-6 rounded shadow'>
-              <p>Payment Card</p>
+            <Card className='pan col-12 rounded shadow'>
+              <p className='payment-text'>Payment Card</p>
               <p>{event.Payment.PAN}</p>
               <p>{event.Payment.Exp}</p>
               <p>{event.Payment.CVV}</p>
