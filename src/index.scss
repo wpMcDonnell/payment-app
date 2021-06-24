@@ -87,10 +87,14 @@ p {
   margin-left: 0.6rem;
   color: $secondary;
   font-size: 20px;
+}
 
+.payment-card-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 #payment-card {
-  display: flex;
-  align-items: center;
+  margin-right: 0.5rem;
 }
