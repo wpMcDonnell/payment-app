@@ -49,7 +49,7 @@ class App extends Component {
       toggledDataJSX = (
         <div className='pb-4'>
         {/* Div / section for Payee name -- main title card */}
-          <div className='d-flex container col-12 col-lg-10 mb-2'>
+          <div className='d-flex container col-12 col-lg-8 mb-2'>
             <Card className='shadow mb-2 col-12 mx-auto'>
               <div className='payee-title-text mt-3 mx-auto'>PAYEE:
                 <p className='payee-name'> {event.Payee.Name} </p>
@@ -57,7 +57,7 @@ class App extends Component {
             </Card>
           </div>
           {/* Div / section for Payee information i.e. fax, address, phone -- main title card */}
-          <div className='justify-content-between container mb-4 col-12 col-lg-10' id="main-div">
+          <div className='justify-content-between container mb-4 col-12 col-lg-8' id="main-div">
 
 
               <div className='col-12 col-lg-6 mt-2 mb-4 '>
@@ -141,9 +141,9 @@ class App extends Component {
   return (
     <Fragment>
       <Header />
-      <div style={appStyle} className="col-lg-10 container mb-4 app-style">
-        <div className="drop-down-prompt col-7 col-lg-4">Click Vendor to see records...</div>
-        <div id='vendor-dropdown col-5'>
+      <div style={appStyle} className="col-lg-8 container mb-4 app-style">
+        <div className="drop-down-prompt col-8 text">Click Vendor to see records...</div>
+        <div id='vendor-dropdown col-4'>
           <DropdownButton variant="outline-info" title="Vendors">
           <Dropdown.Header>Select below</Dropdown.Header>
           {vendorDataJSX}
