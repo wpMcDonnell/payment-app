@@ -47,17 +47,19 @@ class App extends Component {
     if (this.state.vendorClicked) {
       toggledDataJSX = (
         <div className=''>
-          <div className='container'>
-          <Card className='rounded shadow mb-2 col-12'>
-            <p className='payee-title-text mt-4 mx-auto'>Payee: <i> {event.Payee.Name} </i> </p>
+          <div className='d-flex container'>
+          <Card stlye={{ borderRadius: 8 }} className='shadow mb-2 col-12'>
+            <div className='payee-title-text mt-3 mx-auto'>PAYEE: <p className='payee-name'> {event.Payee.Name} </p> </div>
           </Card>
           </div>
           <div className='d-flex container'>
             <Card className='pan col-12 rounded shadow'>
+            <div className='container mt-3'>
               <p className='payment-text'>Payment Card</p>
-              <p>{event.Payment.PAN}</p>
-              <p>{event.Payment.Exp}</p>
-              <p>{event.Payment.CVV}</p>
+              <div className='key-text-header'> PAN: <p>{event.Payment.PAN}</p> </div>
+              <div className='key-text-header'> Exp: <p>{event.Payment.Exp}</p> </div>
+              <div className='key-text-header'> CVV: <p>{event.Payment.CVV}</p> </div>
+            </div>
             </Card>
           </div>
 

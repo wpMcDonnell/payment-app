@@ -9,11 +9,12 @@ $secondary: #FF69B4;
 
 body {
   background-color: #282c34;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 p {
   color: #ededed;
+  font-size: 16px;
 }
 
 .header {
@@ -38,10 +39,21 @@ p {
 
 .payment-text {
   color: $secondary;
+  font-size: 20px;
+}
+
+.payee-name {
+  font-size: 23px;
 }
 
 .payee-title-text {
   color: $secondary;
-  font-size: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+  text-align: center;
+}
+
+.key-text-header {
+  // color: #7a7a7a;
+  // color: #969696;
+  color: #a0b2d9;
 }
