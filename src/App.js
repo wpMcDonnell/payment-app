@@ -48,15 +48,15 @@ class App extends Component {
       toggledDataJSX = (
         <div className=''>
           <div className='d-flex container'>
-          <Card stlye={{ borderRadius: 8 }} className='shadow mb-2 col-12'>
+          <Card className='shadow mb-2 col-12'>
             <div className='payee-title-text mt-3 mx-auto'>PAYEE: <p className='payee-name'> {event.Payee.Name} </p> </div>
           </Card>
           </div>
 
           {/* Payment card object info listing selected json info */}
-          <div className='d-flex container'>
-            <Card className='pan col-12 rounded shadow'>
-            <div className='container mt-3 mb-5'>
+          <div className='d-flex container mb-4'>
+            <Card className='col-12 shadow'>
+            <div className='container mt-3 mb-1'>
               <p className='payment-text'>Payment Card</p>
               <div className='key-text-header'> PAN: <p>{event.Payment.PAN}</p> </div>
               <div className='key-text-header'> Exp: <p>{event.Payment.Exp}</p> </div>
@@ -65,11 +65,11 @@ class App extends Component {
             </Card>
           </div>
           {/* Start Remmittance section... title for array of payments */}
-          <div> Remmittance </div>
+          <h2 className='remit-title'> Remittance </h2>
           {/* Payment card object info listing selected json info */}
           {event.Remittance.map(remittance =>
-          <div className='d-flex container'>
-            <Card className='pan col-12 rounded shadow'>
+          <div key={remittance.InvoiceNo} className='d-flex container'>
+            <Card className='pan col-12 shadow'>
             <div className='container mt-3'>
               <p className='payment-text'>Payment Card</p>
               <div className='key-text-header'> Amount: <p>{remittance.Amount}</p> </div>
