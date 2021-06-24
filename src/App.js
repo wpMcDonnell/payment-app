@@ -142,8 +142,8 @@ class App extends Component {
     <Fragment>
       <Header />
       <div style={appStyle} className="col-lg-10 container mb-4 app-style">
-        <div className="drop-down-prompt col-6 col-sm-6 col-md-4">Search for Vendor to see records...</div>
-        <div id='vendor-dropdown col-6'>
+        <div className="drop-down-prompt col-8 col-lg-4">Search for Vendor to see records...</div>
+        <div id='vendor-dropdown col-4'>
           <DropdownButton variant="outline-info" title="Vendors">
           <Dropdown.Header>Select below</Dropdown.Header>
           {vendorDataJSX}
