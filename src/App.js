@@ -52,9 +52,11 @@ class App extends Component {
             <div className='payee-title-text mt-3 mx-auto'>PAYEE: <p className='payee-name'> {event.Payee.Name} </p> </div>
           </Card>
           </div>
+
+          {/* Payment card object info listing selected json info */}
           <div className='d-flex container'>
             <Card className='pan col-12 rounded shadow'>
-            <div className='container mt-3'>
+            <div className='container mt-3 mb-5'>
               <p className='payment-text'>Payment Card</p>
               <div className='key-text-header'> PAN: <p>{event.Payment.PAN}</p> </div>
               <div className='key-text-header'> Exp: <p>{event.Payment.Exp}</p> </div>
@@ -62,6 +64,21 @@ class App extends Component {
             </div>
             </Card>
           </div>
+          {/* Start Remmittance section... title for array of payments */}
+          <div> Remmittance </div>
+          {/* Payment card object info listing selected json info */}
+          {event.Remittance.map(remittance =>
+          <div className='d-flex container'>
+            <Card className='pan col-12 rounded shadow'>
+            <div className='container mt-3'>
+              <p className='payment-text'>Payment Card</p>
+              <div className='key-text-header'> Amount: <p>{remittance.Amount}</p> </div>
+              <div className='key-text-header'> Inovice Number: <p>{remittance.InvoiceNo}</p> </div>
+              <div className='key-text-header'> Payor ID: <p>{remittance.PayorId}</p> </div>
+            </div>
+            </Card>
+          </div>)}
+
 
         </div>
     )}
