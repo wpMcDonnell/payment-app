@@ -47,14 +47,14 @@ class App extends Component {
     if (this.state.vendorClicked) {
       toggledDataJSX = (
         <div className=''>
-          <div className='d-flex container mb-3'>
+          <div className='d-flex container mb-2'>
           <Card className='shadow mb-2 col-12'>
             <div className='payee-title-text mt-3 mx-auto'>PAYEE: <p className='payee-name'> {event.Payee.Name} </p> </div>
           </Card>
           </div>
 
           {/* Payment card object info listing selected json info */}
-          <div className='d-flex container mb-5'>
+          <div className='d-flex container mb-4'>
             <Card className='col-12 shadow'>
             <div className='container mt-3 mb-1'>
               <p className='payment-text'>Payment Card</p>
@@ -68,13 +68,14 @@ class App extends Component {
           <h2 id='remit-title'> Remittance </h2>
           {/* Payment card object info listing selected json info */}
           {event.Remittance.map(remittance =>
-          <div key={remittance.InvoiceNo} className='d-flex container'>
+          <div key={remittance.InvoiceNo} className='d-flex container mb-3'>
             <Card className='pan col-12 shadow'>
             <div className='container mt-3'>
-              <p className='payment-text'>Payment Card</p>
+              <p className='payment-text'>{remittance.PayorName}</p>
               <div className='key-text-header'> Amount: <p>{remittance.Amount}</p> </div>
               <div className='key-text-header'> Inovice Number: <p>{remittance.InvoiceNo}</p> </div>
               <div className='key-text-header'> Payor ID: <p>{remittance.PayorId}</p> </div>
+              <div className='key-text-header'> Description: <p>{remittance.Description}</p> </div>
             </div>
             </Card>
           </div>)}
@@ -92,9 +93,8 @@ class App extends Component {
   return (
     <Fragment>
     <Header />
-    <div style={appStyle} className="mb-3">
-      <div className="drop-down-prompt">Search for Vendor <br></br> to see records...
-      </div>
+    <div style={appStyle} className="mb-4">
+      <div className="drop-down-prompt">Search for Vendor <br></br> to see records...</div>
       <div id='vendor-dropdown'>
         <DropdownButton variant="outline-info" title="Vendors">
         <Dropdown.Header>Select below</Dropdown.Header>
