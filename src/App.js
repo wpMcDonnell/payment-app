@@ -12,23 +12,26 @@ class App extends Component {
     this.state = {
       // set data state to Object created from sample.json file via require
       data: data,
+      // set vendorClick to false, will be true and render results
+      // when vendor button is clicked
       vendorClicked: false,
+      // event data which will be when click on Payee from vendor menu
       event: '',
+      // state to hold className info for footer to toggle fixed or realitive position
       footerClassName: "copyright-fixed py-4 text-center text-white"
     }
   }
 
   componentDidMount() {
-    console.log(data)
   }
 
+  // function which sets states vendorClicked, footerClassName, and event, by accepting event data from vendor click from dropdown
   getPayeeData = (event) => {
-    console.log(event)
     this.setState({ event : event, vendorClicked: true, footerClassName: 'copyright py-4 text-center text-white' })
   }
 
 
-  // Add styling for the drop down menu and user prompt"
+  // Add styling for the drop down menu and user prompt
   render() {
     const appStyle = {
       display: 'flex',
@@ -37,6 +40,7 @@ class App extends Component {
     }
 
 
+    // deconstruct even from state to use for toggledDataJSX variable, and display nested data
     const { event } = this.state
     // create variable to map vendor "Payee" to drop down menu button
     let vendorDataJSX = (
@@ -45,6 +49,7 @@ class App extends Component {
       <Dropdown.Item key={data.Payee.Name} onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
       </div>)
 
+    // Variable for JSX to display event data from vendor drop down. Displays cards and Payee, Payment, and Remittance info
     let toggledDataJSX = ''
     if (this.state.vendorClicked) {
       toggledDataJSX = (
@@ -57,10 +62,10 @@ class App extends Component {
               </div>
             </Card>
           </div>
-          {/* Div / section for Payee information i.e. fax, address, phone -- main title card */}
+          {/* Div-section for Payee, Payment and Remittance info, allows for responsive flex box --- mobile first */}
           <div className='justify-content-between container mb-4 col-12 col-lg-8' id="main-div">
 
-
+            {/* Div-section for fax, address, phone -- Payee info card */}
               <div className='col-12 col-lg-6 mt-2 mb-4 '>
                 <Card className='col-12 shadow mb-3'>
                   <div className='container mt-3 mb-1'>
@@ -91,6 +96,7 @@ class App extends Component {
                 <div className='container mt-3 mb-1'>
                   <div className='card-header-line'>
                     <p className='payment-text' id='payment-card-text'> Payment Card </p>
+                    {/* svg for credit card bootstrap icon */}
                     <svg id='payment-card' xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className=" bi bi-credit-card" viewBox="0 0 16 16">
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
                     <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
@@ -107,7 +113,7 @@ class App extends Component {
               <div className='col-12 col-lg-5' id='remittance-div-section'>
                 <h2 id='remit-title'> Remittance </h2>
                 {/* Payment card object info listing selected json info */}
-                {event.Remittance.map(remittance =>
+                {event.Remittance.sort((a,b) => parseInt(b.PayorName.charAt(0), 36) - parseInt(a.PayorName.charAt(0), 36)).reverse().map(remittance =>
                   <div key={remittance.InvoiceNo} className='d-flex col-12 container mb-3'>
                     <Card className='col-12 shadow'>
                     <div className='container mt-3 mb-2'>
@@ -118,26 +124,25 @@ class App extends Component {
                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                         </svg>
                       </div>
-                      <div className='key-text-header'> Amount: <p>{remittance.Amount}</p> </div>
-                      <div className='key-text-header'> Inovice Number: <p>{remittance.InvoiceNo}</p> </div>
-                      <div className='key-text-header'> Payor ID: <p>{remittance.PayorId}</p> </div>
-                      <div className='key-text-header'> Description: <p>{remittance.Description}</p> </div>
+                      <div className='key-text-header'> Amount:
+                        <p>{remittance.Amount}</p>
+                      </div>
+                      <div className='key-text-header'> Inovice Number:
+                        <p>{remittance.InvoiceNo}</p>
+                      </div>
+                      <div className='key-text-header'> Payor ID:
+                        <p>{remittance.PayorId}</p>
+                      </div>
+                      <div className='key-text-header'> Description:
+                        <p>{remittance.Description}</p>
+                      </div>
                     </div>
                     </Card>
                 </div>)}
               </div>
           </div>
-
-
-
         </div>
     )}
-
-
-  console.log(this.state.vendorClicked)
-
-
-
 
   return (
     <Fragment>
@@ -159,7 +164,6 @@ class App extends Component {
         <div className="container"><small>Copyright © Paymerang 2021</small></div>
       </div>
     </Fragment>
-
   );
 }
 }
