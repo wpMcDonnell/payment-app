@@ -22,10 +22,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log(data)
-  }
-
   // function which sets states vendorClicked, footerClassName, and event, by accepting event data from vendor click from dropdown
   getPayeeData = (event) => {
     this.setState({ event : event, vendorClicked: true, footerClassName: 'copyright py-4 text-center text-white' })
