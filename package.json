@@ -1,6 +1,6 @@
 {
   "name": "payment-app",
-  "homepage": "https://wpmcdonnell.github.io/payment-app",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

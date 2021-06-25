@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(data)
   }
 
   // function which sets states vendorClicked, footerClassName, and event, by accepting event data from vendor click from dropdown
@@ -102,9 +103,15 @@ class App extends Component {
                     <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
                     </svg>
                   </div>
-                  <div className='key-text-header'> PAN: <p>{event.Payment.PAN}</p> </div>
-                  <div className='key-text-header'> Exp: <p>{event.Payment.Exp}</p> </div>
-                  <div className='key-text-header'> CVV: <p>{event.Payment.CVV}</p> </div>
+                  <div className='key-text-header'> PAN:
+                    <p>{event.Payment.PAN}</p>
+                  </div>
+                  <div className='key-text-header'> Exp:
+                    <p>{event.Payment.Exp}</p>
+                  </div>
+                  <div className='key-text-header'> CVV:
+                    <p>{event.Payment.CVV}</p>
+                  </div>
                 </div>
                 </Card>
               </div>
@@ -112,13 +119,15 @@ class App extends Component {
           {/* Start Remmittance section... title for array of payments */}
               <div className='col-12 col-lg-5' id='remittance-div-section'>
                 <h2 id='remit-title'> Remittance </h2>
-                {/* Payment card object info listing selected json info */}
+                {/* Payment card object info listing selected json info  sort by first character
+                  value of PayorName with parseInt and then reverse for alphabetical order */}
                 {event.Remittance.sort((a,b) => parseInt(b.PayorName.charAt(0), 36) - parseInt(a.PayorName.charAt(0), 36)).reverse().map(remittance =>
                   <div key={remittance.InvoiceNo} className='d-flex col-12 container mb-3'>
                     <Card className='col-12 shadow'>
                     <div className='container mt-3 mb-2'>
                       <div className='card-header-line'>
                         <p className='payment-text'>{remittance.PayorName} </p>
+                        {/* svg for remittance.. shows it is a invoice -- bootstrap icon*/}
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-file-text" viewBox="0 0 16 16">
                         <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
@@ -144,8 +153,10 @@ class App extends Component {
         </div>
     )}
 
+  // Return HTML and JSX for atual page display
   return (
     <Fragment>
+    {/* Header with Paymerange LOGO */}
       <Header />
       <div style={appStyle} className="col-lg-8 container mb-4 app-style">
         <div className="drop-down-prompt col-7 text">Click Vendor to see records...</div>
