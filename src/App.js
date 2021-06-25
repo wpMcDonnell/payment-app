@@ -160,7 +160,7 @@ class App extends Component {
       <Header />
       <div style={appStyle} className="col-lg-8 container mb-4 app-style">
         {/* User prompt to use drop-down */}
-        <div className="drop-down-prompt col-7 text">Click Vendor to see records...</div>
+        <div className="drop-down-prompt col-7 text">Click Vendors to see records...</div>
         <div id='vendor-dropdown col-4'>
           <DropdownButton variant="outline-info" title="Vendors">
           <Dropdown.Header>Select below</Dropdown.Header>
