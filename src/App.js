@@ -14,7 +14,7 @@ class App extends Component {
       data: data,
       vendorClicked: false,
       event: '',
-      footerClassName: "copyright-fixed py-3 text-center text-white"
+      footerClassName: "copyright-fixed py-4 text-center text-white"
     }
   }
 
@@ -24,8 +24,9 @@ class App extends Component {
 
   getPayeeData = (event) => {
     console.log(event)
-    this.setState({ event : event, vendorClicked: true, footerClassName: 'copyright py-3 text-center text-white' })
+    this.setState({ event : event, vendorClicked: true, footerClassName: 'copyright py-4 text-center text-white' })
   }
+
 
   // Add styling for the drop down menu and user prompt"
   render() {
@@ -36,11 +37,12 @@ class App extends Component {
 
     }
 
+
     const { event } = this.state
     // create variable to map vendor "Payee" to drop down menu button
     let vendorDataJSX = (
       <div className=''>
-      {this.state.data.sort().map(data =>
+      {this.state.data.slice().sort((a,b) => parseInt(b.Payee.Name.charAt(0), 36) - parseInt(a.Payee.Name.charAt(0), 36)).reverse().map(data =>
       <Dropdown.Item key={data.Payee.Name} onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
       </div>)
 

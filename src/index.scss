@@ -98,12 +98,6 @@ svg {
   align-items: flex-start;
 }
 
-@media (min-width:992px) {
-  #main-div {
-    display: flex;
-  }
-}
-
 @media (min-width:370px) {
   .drop-down-prompt {
     font-size: 14px;
@@ -122,5 +116,11 @@ svg {
   .app-style {
     justify-content: flex-end;
     align-items: flex-end;
+  }
+}
+
+@media (min-width:992px) {
+  #main-div {
+    display: flex;
   }
 }
