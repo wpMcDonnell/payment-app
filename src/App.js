@@ -46,6 +46,7 @@ class App extends Component {
     // create variable to map vendor "Payee" to drop down menu button
     let vendorDataJSX = (
       <div className=''>
+      {/* Sorts data by interger value of first character of payee name then reverses */}
       {this.state.data.slice().sort((a,b) => parseInt(b.Payee.Name.charAt(0), 36) - parseInt(a.Payee.Name.charAt(0), 36)).reverse().map(data =>
       <Dropdown.Item key={data.Payee.Name} onClick={() => this.getPayeeData(data)} >{data.Payee.Name}</Dropdown.Item>)}
       </div>)
@@ -159,18 +160,22 @@ class App extends Component {
     {/* Header with Paymerange LOGO */}
       <Header />
       <div style={appStyle} className="col-lg-8 container mb-4 app-style">
+        {/* User prompt to use drop-down */}
         <div className="drop-down-prompt col-7 text">Click Vendor to see records...</div>
         <div id='vendor-dropdown col-4'>
           <DropdownButton variant="outline-info" title="Vendors">
           <Dropdown.Header>Select below</Dropdown.Header>
+          {/* Mapped JSX of JSON Payee to select for render */}
           {vendorDataJSX}
           </DropdownButton>
         </div>
       </div>
 
       <div>
+        {/* Rendered event data from sample.JSON */}
         {toggledDataJSX}
       </div>
+      {/* Footer section*/}
       <div className={this.state.footerClassName}>
         <div className="container"><small>Copyright © Paymerang 2021</small></div>
       </div>
