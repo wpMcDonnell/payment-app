@@ -89,6 +89,9 @@ class App extends Component {
                       {event.Payee.Address.Country}
                       </p>
                     </div>
+                    <div className='key-text-header'> Submission Date:
+                      <p>{event.Payee.SubmissionDate}</p>
+                    </div>
                   </div>
                 </Card>
 
