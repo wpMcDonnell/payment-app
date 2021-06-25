@@ -34,7 +34,6 @@ class App extends Component {
       display: 'flex',
       textAlign: 'center',
       marginTop: '2rem',
-
     }
 
 
@@ -144,7 +143,7 @@ class App extends Component {
     <Fragment>
       <Header />
       <div style={appStyle} className="col-lg-8 container mb-4 app-style">
-        <div className="drop-down-prompt col-8 text">Click Vendor to see records...</div>
+        <div className="drop-down-prompt col-7 text">Click Vendor to see records...</div>
         <div id='vendor-dropdown col-4'>
           <DropdownButton variant="outline-info" title="Vendors">
           <Dropdown.Header>Select below</Dropdown.Header>
